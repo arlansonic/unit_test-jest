@@ -1,7 +1,8 @@
-const Soma = (num1, num2) => {
-    return num1 + num2
+const SomaHorasExtras = (salario, valorHorasExtras) => salario + valorHorasExtras;
+
+const calculoDescontos = (salario, descontos) => salario - descontos;
+
+export {
+    SomaHorasExtras,
+    calculoDescontos
 }
-
-
-
-export default Soma
