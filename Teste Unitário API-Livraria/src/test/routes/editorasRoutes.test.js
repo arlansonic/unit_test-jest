@@ -38,6 +38,13 @@ describe('POST em /editoras', () => {
 
         idResposta = resp.body.content.id
     })
+
+    it('Deve não adicionar nada ao passar um body vazio', async () => {
+        await request(app)
+            .post('/editoras')
+            .send({})
+            .expect(400)
+    })
 })
 
 describe('DELETE em /editoras', () => {
