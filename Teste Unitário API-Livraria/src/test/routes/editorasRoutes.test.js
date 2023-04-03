@@ -47,18 +47,27 @@ describe('POST em /editoras', () => {
     })
 })
 
-describe('DELETE em /editoras', () => {
-    it('Deletar o recurso adicionado', async () => {
-        await request(app)
-            .delete(`/editoras/${idResposta}`)
-            .expect(200)
-    })
-})
-
 describe('GET em /editoras/id', () => {
     it('Deve retornar o recurso selecionado', async () => {
         await request(app)
             .get(`/editoras/${idResposta}`)
+            .expect(200)
+    })
+})
+
+describe('PUT em /editoras/id', () => {
+    it('Deve alterar o campo nome', async () => {
+        await request(app)
+        .put(`/editoras/${idResposta}`)
+        .send({nome: 'Casa do Codigo'})
+        expect(204)
+    })
+})
+
+describe('DELETE em /editoras', () => {
+    it('Deletar o recurso adicionado', async () => {
+        await request(app)
+            .delete(`/editoras/${idResposta}`)
             .expect(200)
     })
 })
