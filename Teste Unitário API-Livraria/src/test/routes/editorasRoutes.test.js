@@ -56,10 +56,14 @@ describe('GET em /editoras/id', () => {
 })
 
 describe('PUT em /editoras/id', () => {
-    it('Deve alterar o campo nome', async () => {
+    test.each([
+        ['Nome: ', { nome: 'Casa do Codigo' }],
+        ['Cidade: ', { cidade: 'AM' }],
+        ['Email: ', { email: 'arlan.marreiro@gmail.com' }],
+    ])('Deve alterar o campo nome %s', async (chave, param) => {
         await request(app)
-        .put(`/editoras/${idResposta}`)
-        .send({nome: 'Casa do Codigo'})
+            .put(`/editoras/${idResposta}`)
+            .send({ param })
         expect(204)
     })
 })
